@@ -1,5 +1,7 @@
+import styles from "./Header.module.css";
+
 export const Header = () => (
-  <header>
+  <header className={styles.header}>
     <nav>
       <ul>
         <li>

@@ -1,0 +1,36 @@
+body, html {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  font-weight: 500;
+}
+
+#root {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.loader {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, #3182ce);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  animation: spinner 1s infinite linear;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(1turn);
+  }
+}
