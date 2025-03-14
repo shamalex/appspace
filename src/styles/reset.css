@@ -1,6 +1,5 @@
 /* reset.css */
 
-/* Reset margins and paddings */
 *,
 *::before,
 *::after {
@@ -9,7 +8,6 @@
   box-sizing: border-box;
 }
 
-/* Remove default styles for list and links */
 ol,
 ul {
   list-style: none;
@@ -20,7 +18,6 @@ a {
   color: inherit;
 }
 
-/* Remove default border styles */
 button,
 input,
 textarea {
@@ -28,25 +25,21 @@ textarea {
   outline: none;
 }
 
-/* Set default font family */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   line-height: 1.5;
 }
 
-/* Set a light background color */
 body {
-  background-color: #fff;
+  background-color: white;
   color: #333;
 }
 
-/* Make images responsive */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* Disable the text selection highlight */
 * {
   -webkit-user-select: none;
   -moz-user-select: none;

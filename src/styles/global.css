@@ -24,7 +24,7 @@ main {
   height: 56px;
   margin: 0 auto;
   border-radius: 50%;
-  background: conic-gradient(#0000 10%, #3182ce);
+  background: conic-gradient(#0000 10%, #282c34);
   -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
   animation: spinner 1s infinite linear;
 }
