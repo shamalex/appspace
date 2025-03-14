@@ -1,0 +1,42 @@
+{
+  "name": "technical-challenge",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.4",
+    "classnames": "2.5.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-router-dom": "7.3.0",
+    "typescript": "5.8.2"
+  },
+  "devDependencies": {
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
