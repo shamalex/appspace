@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import styles from "./SearchBar.module.css";
+import { useDebounce } from "../../hooks/useDebounce";
 
 const DEBOUNCE_DELAY = 300;
 
@@ -16,17 +17,11 @@ export const SearchBar: FC<SearchBarProps> = ({
 }) => {
   const [inputValue, setInputValue] = useState(search);
 
-  useEffect(() => {
-    // added debounce to avoid sending request on every key press
-    const handler = setTimeout(() => {
-      setSearch(inputValue);
-    }, debounceDelay);
+  const debouncedValue = useDebounce(inputValue, debounceDelay);
 
-    // clear timeout on every key press
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [inputValue, debounceDelay, setSearch]);
+  useEffect(() => {
+    setSearch(debouncedValue);
+  }, [debouncedValue, setSearch]);
 
   return (
     <label className={styles.label}>
