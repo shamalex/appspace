@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
 export const Header = () => (
@@ -5,7 +6,7 @@ export const Header = () => (
     <nav>
       <ul>
         <li>
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
         </li>
       </ul>
     </nav>
