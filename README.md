@@ -16,7 +16,8 @@ This project is deployed on Vercel. You can see it live [https://appspace-theta.
 ### Listing Page:
 
 - Shows a list of characters with their name and image.
-- You can search by name
+- You can search by name.
+- Using debounce to avoid making too many requests.
 - Filter by status (Alive, Dead, Unknown).
 - Filter by Gender (Male, Female, Unknown).
 - Sort alphabetically.
@@ -29,6 +30,7 @@ This project is deployed on Vercel. You can see it live [https://appspace-theta.
 - Shows a message when there are no characters to show.
 - Collapsible filter section on mobile for better user experience.
 - Footer sticky to the bottom of the page.
+- Update title when route changes.
 
 ### Details Page:
 
