@@ -1,0 +1,28 @@
+.select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background-color: #f7fafc;
+}
+
+.select:hover {
+  border-color: #cbd5e0;
+}
+
+.select:focus-within {
+  outline: none;
+}
+
+.label {
+  margin-right: 0.5rem;
+  width: 100%;
+  max-width: 25rem;
+}
+
+.labelText {
+  font-size: 0.7rem;
+}
