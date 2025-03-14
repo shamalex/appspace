@@ -18,6 +18,18 @@ const DetailPage = () => {
     fetchCharacter();
   }, [id]);
 
+  useEffect(() => {
+    if (character) {
+      document.title = `${character.name} - Character Details`;
+    } else {
+      document.title = "Loading...";
+    }
+
+    return () => {
+      document.title = "Character List";
+    };
+  }, [character]);
+
   if (!character) {
     return <div className="loader"></div>;
   }
