@@ -21,7 +21,13 @@ export const useCharacters = (
   const [hasPrevPage, setHasPrevPage] = useState(false);
 
   const queryParams = useMemo(
-    () => generateCharacterQueryParams(page, search, selectedStatus, selectedGender),
+    () =>
+      generateCharacterQueryParams(
+        page,
+        search,
+        selectedStatus,
+        selectedGender
+      ),
     [page, search, selectedStatus, selectedGender]
   );
 
@@ -31,7 +37,9 @@ export const useCharacters = (
   );
 
   const fetchCharacters = useCallback(async () => {
-    if (!queryParams) return;
+    if (!queryParams) {
+      return;
+    }
 
     setIsLoading(true);
     setError(null);

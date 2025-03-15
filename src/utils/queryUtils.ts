@@ -9,7 +9,9 @@ export const generateCharacterQueryParams = (
 ): string => {
   const params = new URLSearchParams();
   params.append("page", page.toString());
-  if (search?.trim()) params.append("name", search);
+  if (search?.trim()) {
+    params.append("name", search);
+  }
   if (selectedStatus) {
     params.append("status", selectedStatus);
   }
