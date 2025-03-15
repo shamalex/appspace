@@ -11,6 +11,8 @@ export const generateCharacterQueryParams = (
   params.append("page", page.toString());
   if (search?.trim()) {
     params.append("name", search);
+    //remove page number if search is present
+    params.delete("page");
   }
   if (selectedStatus) {
     params.append("status", selectedStatus);
