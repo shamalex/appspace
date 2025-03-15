@@ -20,9 +20,15 @@ export const Filters: FC<FiltersProps> = ({
 }) => {
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
 
-  const toggleMobileFilters = useCallback(
-    () => setIsMobileFiltersOpen((prev) => !prev),
-    []
+  const toggleMobileFilters = useCallback(() => {
+    setIsMobileFiltersOpen((prev) => !prev);
+  }, []);
+
+  const handleResetFilters = useCallback(
+    () => {
+      setSearchParams(new URLSearchParams());
+    },
+    [setSearchParams]
   );
 
   return (
@@ -37,19 +43,19 @@ export const Filters: FC<FiltersProps> = ({
         }`}
       >
         <SearchBar
-          search={searchParams.get("search") || ""}
+          search={searchParams.get("search") || ''}
           setSearch={(value) =>
             updateFilters(searchParams, setSearchParams, "search", value)
           }
         />
         <StatusFilter
-          selectedStatus={(searchParams.get("status") as Status) || ""}
+          selectedStatus={(searchParams.get("status") as Status) || ''}
           setSelectedStatus={(value) =>
             updateFilters(searchParams, setSearchParams, "status", value)
           }
         />
         <GenderFilter
-          selectedGender={(searchParams.get("gender") as Gender) || ""}
+          selectedGender={(searchParams.get("gender") as Gender) || ''}
           setSelectedGender={(value) =>
             updateFilters(searchParams, setSearchParams, "gender", value)
           }
@@ -63,12 +69,7 @@ export const Filters: FC<FiltersProps> = ({
           }
         />
 
-        <button
-          className={styles.resetBtn}
-          onClick={() => {
-            setSearchParams(new URLSearchParams());
-          }}
-        >
+        <button className={styles.resetBtn} onClick={handleResetFilters}>
           Reset
         </button>
       </div>

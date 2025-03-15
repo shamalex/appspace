@@ -20,8 +20,16 @@ export const SearchBar: FC<SearchBarProps> = ({
   const debouncedValue = useDebounce(inputValue, debounceDelay);
 
   useEffect(() => {
-    setSearch(debouncedValue);
-  }, [debouncedValue, setSearch]);
+    if (debouncedValue !== search) {
+      setSearch(debouncedValue);
+    }
+  }, [debouncedValue, setSearch, search]);
+
+  useEffect(() => {
+    if (search === '') {
+      setInputValue('');
+    }
+  }, [search]);
 
   return (
     <label className={styles.label}>

@@ -17,7 +17,7 @@ const fetchData = async <T>(endpoint: string): Promise<T> => {
   return response.json();
 };
 
-export const getCharacters = (queryParams = ""): Promise<CharacterResponse> =>
+export const getCharacters = (queryParams = ''): Promise<CharacterResponse> =>
   fetchData<CharacterResponse>(queryParams);
 
 export const getCharacterById = (id: string): Promise<Character> =>

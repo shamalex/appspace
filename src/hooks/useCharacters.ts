@@ -1,14 +1,17 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { SortOrder } from "../components/SortOrderSelect/SortOrderSelect.types";
 import { getCharacters } from "../utils/characterApi";
 import { Character } from "../types/character";
-import { generateCharacterQueryParams, sortCharacters } from "../utils/queryUtils";
+import {
+  generateCharacterQueryParams,
+  sortCharacters,
+} from "../utils/queryUtils";
 
 export const useCharacters = (
   page: number,
   search: string,
   selectedStatus: string,
-  selectedGender:string,
+  selectedGender: string,
   sortOrder: SortOrder
 ) => {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -27,27 +30,29 @@ export const useCharacters = (
     [characters, sortOrder]
   );
 
-  useEffect(() => {
-    const fetchCharacters = async () => {
-      setIsLoading(true);
-      setError(null);
+  const fetchCharacters = useCallback(async () => {
+    if (!queryParams) return;
 
-      try {
-        const { results, info } = await getCharacters(`?${queryParams}`);
-        setCharacters(results);
-        setHasNextPage(info.next !== null);
-        setHasPrevPage(info.prev !== null);
-      } catch (error) {
-        console.error("Error fetching characters:", error);
-        setError("Failed to load characters. Please try again.");
-        setCharacters([]);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+    setIsLoading(true);
+    setError(null);
 
-    fetchCharacters();
+    try {
+      const { results, info } = await getCharacters(`?${queryParams}`);
+      setCharacters(results || []);
+      setHasNextPage(!!info?.next);
+      setHasPrevPage(!!info?.prev);
+    } catch (err) {
+      console.error("Error fetching characters:", err);
+      setError("Failed to load characters. Please try again.");
+      setCharacters([]);
+    } finally {
+      setIsLoading(false);
+    }
   }, [queryParams]);
+
+  useEffect(() => {
+    fetchCharacters();
+  }, [fetchCharacters]);
 
   return { filteredCharacters, isLoading, error, hasNextPage, hasPrevPage };
 };

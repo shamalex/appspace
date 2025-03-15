@@ -13,9 +13,9 @@ const ListingPage = () => {
   const filters = useMemo(
     () => ({
       page: Number(searchParams.get("page")) || 1,
-      search: searchParams.get("search") || "",
-      selectedStatus: searchParams.get("status") || "",
-      selectedGender: searchParams.get("gender") || "",
+      search: searchParams.get("search") || '',
+      selectedStatus: searchParams.get("status") || '',
+      selectedGender: searchParams.get("gender") || '',
       sortOrder: (searchParams.get("sortOrder") as SortOrder) || SortOrder.Asc,
     }),
     [searchParams]

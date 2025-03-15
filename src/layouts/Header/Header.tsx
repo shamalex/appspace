@@ -6,7 +6,7 @@ export const Header = () => (
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to={{ pathname: "/", search: '' }}>Home</Link>
         </li>
       </ul>
     </nav>
